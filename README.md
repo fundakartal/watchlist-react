@@ -57,7 +57,7 @@ By searching, you can add movies to the lists you want.
 
 ## ✨ About The Project
 
-The project was developed with React.js by using Context Api and React Hooks, styled with Tailwind CSS.
+The project was developed with React.js by using Context API and React Hooks, styled with Tailwind CSS.
 
 ### Tech Stack
 
