@@ -75,10 +75,6 @@ The project was developed with React.js by using Context Api and React Hooks, st
 
 - [**TMDB API**](https://www.themoviedb.org/documentation/api)
 
-### Demo
-
-**Demo :** https://watchlist.netlify.app/
-
 ## ⚡ Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing
