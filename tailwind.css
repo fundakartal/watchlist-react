@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@layer base {
+  html,
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply antialiased;
+  }
+}
+@layer components {
+  button.active .switch {
+    @apply right-0 left-auto;
+  }
+}
