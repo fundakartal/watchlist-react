@@ -1,5 +1,5 @@
 {
-  "name": "watchlist-react-react",
+  "name": "watchlist-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,6 +43,8 @@
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.7",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "tailwindcss": "^3.0.23"
   }
 }
