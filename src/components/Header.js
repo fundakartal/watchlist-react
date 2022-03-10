@@ -11,16 +11,17 @@ import {
 } from 'react-icons/ai';
 import { RiMovie2Line } from 'react-icons/ri';
 import ToggleTheme from 'components/ToggleTheme';
+import { useRef } from 'react';
 
 const Header = () => {
+  const social = useRef();
   const toggleMenu = () => {
-    const social = document.querySelector('.social');
-    if (social.classList.contains('-left-full')) {
-      social.classList.remove('-left-full');
-      social.classList.add('left-0');
+    if (social.current.classList.contains('-left-full')) {
+      social.current.classList.remove('-left-full');
+      social.current.classList.add('left-0');
     } else {
-      social.classList.add('-left-full');
-      social.classList.remove('left-0');
+      social.current.classList.add('-left-full');
+      social.current.classList.remove('left-0');
     }
   };
 
@@ -65,7 +66,10 @@ const Header = () => {
         <div>
           <ToggleTheme />
         </div>
-        <div className='social md:hidden flex flex-col items-center p-5 gap-y-5 absolute top-full w-full  bg-violet-200 dark:bg-violet-900 z-20 -left-full transition-all'>
+        <div
+          ref={social}
+          className='md:hidden flex flex-col items-center p-5 gap-y-5 absolute top-full w-full  bg-violet-200 dark:bg-violet-900 z-20 -left-full transition-all'
+        >
           <a href='https://github.com/fundakartal'>
             <AiFillGithub size='28' />
           </a>

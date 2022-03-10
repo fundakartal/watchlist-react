@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useRef } from 'react';
 import { GlobalContext } from 'context/GlobalContext';
 import { MovieCard } from './MovieCard';
 import Slider from 'react-slick';
@@ -6,9 +6,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const HomePage = () => {
-  
-  const { trendingMovies, topRatedMovies, fetchTrendingMovies, fetchTopRatedMovies, } =
-    useContext(GlobalContext);
+  const {
+    trendingMovies,
+    topRatedMovies,
+    fetchTrendingMovies,
+    fetchTopRatedMovies,
+  } = useContext(GlobalContext);
   const trendingWeekUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}`;
   const trendingDayUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`;
   const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}`;
@@ -18,13 +21,12 @@ const HomePage = () => {
     fetchTopRatedMovies(topRatedUrl);
   }, []);
 
-  const switchBtn = (e) => {
-    e.target.parentElement.classList.toggle('active');
-    if (e.target.parentElement.classList.contains('active')) {
-      fetchTrendingMovies(trendingDayUrl);
-    } else {
-      fetchTrendingMovies(trendingWeekUrl);
-    }
+  const switchBtn = useRef();
+  const switchData = (e) => {
+    switchBtn.current.classList.toggle('active');
+    switchBtn.current.classList.contains('active')
+      ? fetchTrendingMovies(trendingDayUrl)
+      : fetchTrendingMovies(trendingWeekUrl);
   };
 
   var settings = {
@@ -64,8 +66,9 @@ const HomePage = () => {
             Trending Movies
           </h1>
           <button
+            ref={switchBtn}
             className='relative font-semibold w-28 h-8 rounded-xl border-[1px] border-green-400 overflow-hidden'
-            onClick={switchBtn}
+            onClick={switchData}
           >
             <span className='inline-flex items-center justify-center w-1/2 h-full text-violet-900 dark:text-violet-100'>
               Day
