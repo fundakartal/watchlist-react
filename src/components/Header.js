@@ -26,40 +26,40 @@ const Header = () => {
   };
 
   return (
-    <header className='relative md:static flex items-center h-16 bg-violet-200 text-violet-900 dark:bg-violet-900 dark:text-violet-200'>
-      <div className='flex items-center px-4 w-full max-w-7xl justify-between mx-auto'>
+    <header className='relative flex h-16 items-center bg-violet-200 text-violet-900 dark:bg-violet-900 dark:text-violet-200 md:static'>
+      <div className='mx-auto flex w-full max-w-7xl items-center justify-between px-4'>
         <button className='menu md:hidden' onClick={toggleMenu}>
           <AiOutlineMenu size='28' />
         </button>
         <Link to='/'>
           <div className='flex gap-x-2'>
             <RiMovie2Line size='28' />
-            <div className='text-lg md:text-xl font-bold'>Watchlist</div>
+            <div className='text-lg font-bold md:text-xl'>Watchlist</div>
           </div>
         </Link>
-        <nav className='md:static md:justify-center flex items-center justify-between md:gap-x-10 fixed bottom-0 left-0 w-full z-20 px-4 h-16 bg-violet-200 text-violet-900 dark:bg-violet-900 dark:text-violet-200 font-semibold'>
+        <nav className='fixed bottom-0 left-0 z-20 flex h-16 w-full items-center justify-between bg-violet-200 px-4 font-semibold text-violet-900 dark:bg-violet-900 dark:text-violet-200 md:static md:justify-center md:gap-x-10'>
           <Link to='/'>
-            <div className='flex flex-col md:flex-row md:gap-x-2 md:bg-violet-300 md:hover:bg-violet-400 md:p-2 md:rounded-2xl  dark:md:text-violet-900 transition-all items-center'>
+            <div className=' flex flex-col items-center transition-all md:flex-row md:gap-x-2 md:rounded-2xl md:bg-violet-300  md:p-2 md:hover:bg-violet-400 dark:md:text-violet-900'>
               <AiFillHome size='24' />
-              <span className=''>Home</span>
+              Home
             </div>
           </Link>
           <Link to='/watchlist'>
-            <div className='flex flex-col md:flex-row md:gap-x-2 md:bg-violet-300 md:hover:bg-violet-400 md:p-2 md:rounded-2xl  dark:md:text-violet-900 transition-all items-center'>
+            <div className='flex flex-col items-center transition-all md:flex-row md:gap-x-2 md:rounded-2xl md:bg-violet-300  md:p-2 md:hover:bg-violet-400 dark:md:text-violet-900'>
               <AiOutlineUnorderedList size='24' />
-              <span className=''>Watchlist</span>
+              Watchlist
             </div>
           </Link>
           <Link to='/watched'>
-            <div className='flex flex-col md:flex-row md:gap-x-2 md:bg-violet-300 md:hover:bg-violet-400 md:p-2 md:rounded-2xl  dark:md:text-violet-900 transition-all items-center'>
+            <div className='flex flex-col items-center transition-all md:flex-row md:gap-x-2 md:rounded-2xl md:bg-violet-300  md:p-2 md:hover:bg-violet-400 dark:md:text-violet-900'>
               <AiFillEye size='24' />
-              <span className=''>Watched</span>
+              Watched
             </div>
           </Link>
           <Link to='/search'>
-            <div className='flex flex-col md:flex-row md:gap-x-2 md:bg-violet-300 md:hover:bg-violet-400 md:p-2 md:rounded-2xl  dark:md:text-violet-900 transition-all items-center'>
+            <div className='flex flex-col items-center transition-all md:flex-row md:gap-x-2 md:rounded-2xl md:bg-violet-300  md:p-2 md:hover:bg-violet-400 dark:md:text-violet-900'>
               <AiOutlineSearch size='24' />
-              <span className=''>Search</span>
+              Search
             </div>
           </Link>
         </nav>
@@ -68,7 +68,7 @@ const Header = () => {
         </div>
         <div
           ref={social}
-          className='md:hidden flex flex-col items-center p-5 gap-y-5 absolute top-full w-full  bg-violet-200 dark:bg-violet-900 z-20 -left-full transition-all'
+          className='absolute top-full -left-full z-20 flex w-full flex-col items-center gap-y-5  bg-violet-200 p-5 transition-all dark:bg-violet-900 md:hidden'
         >
           <a href='https://github.com/fundakartal'>
             <AiFillGithub size='28' />
