@@ -12,21 +12,23 @@ const HomePage = () => {
     fetchTrendingMovies,
     fetchTopRatedMovies,
   } = useContext(GlobalContext);
-  const trendingWeekUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}`;
-  const trendingDayUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`;
-  const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}`;
+  const urlList = {
+    trendingWeekUrl: `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_KEY}`,
+    trendingDayUrl: `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`,
+    topRatedUrl: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}`,
+  };
 
   useEffect(() => {
-    fetchTrendingMovies(trendingWeekUrl);
-    fetchTopRatedMovies(topRatedUrl);
+    fetchTrendingMovies(urlList.trendingWeekUrl);
+    fetchTopRatedMovies(urlList.topRatedUrl);
   }, []);
 
   const switchBtn = useRef();
-  const switchData = (e) => {
+  const switchData = () => {
     switchBtn.current.classList.toggle('active');
     switchBtn.current.classList.contains('active')
-      ? fetchTrendingMovies(trendingDayUrl)
-      : fetchTrendingMovies(trendingWeekUrl);
+      ? fetchTrendingMovies(urlList.trendingDayUrl)
+      : fetchTrendingMovies(urlList.trendingWeekUrl);
   };
 
   var settings = {
